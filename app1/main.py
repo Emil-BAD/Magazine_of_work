@@ -15,6 +15,18 @@ speciality = input('speciality')
 address = input('addres')
 email = input('email')
 hashed_password = input('password')
+team_leader = int(input('t_l'))
+job_us = input('job')
+work_size = int(input('work_size'))
+collaborators = input('collaborators')
+start_date = input('start_date')
+if start_date != 'now':
+    pass
+is_finished = None
+if input('True/False') == 'True':
+    is_finished = True
+else:
+    is_finished = False
 
 
 def main():
@@ -34,8 +46,8 @@ def main():
     db_sess.commit()
     user = db_sess.query(User).first()
     db_sess.commit()
-    job = Jobs(team_leader=user.id, job='deployment of residential modules 1 and 2', work_size=15, collaborators='2, 3',
-               is_finished=False)
+    job = Jobs(team_leader=team_leader, job=job_us, work_size=work_size, collaborators=collaborators,
+               is_finished=is_finished)
     db_sess.add(job)
     db_sess.commit()
 
